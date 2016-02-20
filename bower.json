@@ -1,0 +1,10 @@
+{
+    "name": "Don't Stop Learning",
+    "version": "0.0.1",
+    "dependencies": {
+        "bootstrap": "latest",
+        "angular": "latest",
+        "jquery": "latest"
+    }
+}
+
