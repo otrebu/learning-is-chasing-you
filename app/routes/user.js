@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 var router = express.Router();
 var morgan = require('morgan');
 
+var apiHelper = require('../helpers/api');
+
 var User = require('../models/user');
 
 router.use(morgan('combined'));
@@ -103,6 +105,8 @@ router.route('/:user_id')
         });
     })
     .delete(function(request, response){
+        apiHelper.deleteIt(User, request.params.user_id, request, response);
+        /*
         User.findById(request.params.user_id, function(err, result){
             if(err){
                 response.status(501).json(err);
@@ -117,24 +121,8 @@ router.route('/:user_id')
                     });
                 }
             }
-        });
-        /*                         
-        User.remove({
-            _id: request.params.id
-        },function(err, result){
-            if(err){
-                response.status(501).json(err);
-            }else{
-                if(result){
-                    console.log("result from delete");
-                    console.log(result);
-                    response.send({message: 'Successfully deleted'});
-                } else {
-                    response.send({message: 'Nothing to delete'});
-                }
-            }
-        });
-        */
+            });*/
+        
     });
                 
                               

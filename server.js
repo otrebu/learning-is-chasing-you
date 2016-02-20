@@ -1,19 +1,20 @@
-var express    = require('express');        // call express
-var app        = express();                 // define our app using express
-var bodyParser = require('body-parser');
+var express    = require('express');   
+var app        = express();         
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/db');
 
-app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(express.static(__dirname + '/public')); 
 
 /************
   API Routes
 *************/
 
 var users = require('./app/routes/user');
+var goals = require('./app/routes/goal');
 
 app.use('/api/users', users);
+app.use('/api/goals', goals);
 
 // START THE SERVER
 app.listen(8080);
