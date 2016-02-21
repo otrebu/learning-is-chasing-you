@@ -106,23 +106,6 @@ router.route('/:user_id')
     })
     .delete(function(request, response){
         apiHelper.deleteIt(User, request.params.user_id, request, response);
-        /*
-        User.findById(request.params.user_id, function(err, result){
-            if(err){
-                response.status(501).json(err);
-            } else {
-                if(result){
-                    result.remove(function(err){
-                        if(err){
-                            response.status(501).json(err);
-                        }else{
-                            response.send({message: 'Successfully deleted'});
-                        }
-                    });
-                }
-            }
-            });*/
-        
     });
                 
                               

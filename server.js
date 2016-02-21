@@ -16,5 +16,9 @@ var goals = require('./app/routes/goal');
 app.use('/api/users', users);
 app.use('/api/goals', goals);
 
+app.get('/', function(request, response){
+    response.sendFile(__dirname + '/public/views/index.html');
+});
+
 // START THE SERVER
 app.listen(8080);
